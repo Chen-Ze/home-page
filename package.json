@@ -18,7 +18,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
+    "test": "nx affected --target=test",
     "prepare": "is-ci || husky install"
   },
   "private": true,
