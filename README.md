@@ -92,3 +92,65 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+## A Brief History
+
+The following are a brief reminder of the process of creating a project.
+
+### Basic Setup
+
+#### Creation
+
+This workspace was created by
+```shell
+npx create-nx-workspace
+```
+With template `apps`.
+
+#### LICENSE
+
+The License file is a template of the MIT license.
+
+#### Git
+
+There is a `.gitignore` provided by default. However, the following entries were added manually
+```gitignore
+.eslintcache
+```
+
+Necessary repository information was added into `package.json`.
+
+#### Circle CI
+
+The file `.circleci/config.yml` is copied from [Configuring CI Using CircleCI and Nx](https://nx.dev/ci/monorepo-ci-circle-ci).
+
+### Version Control
+
+#### Husky
+
+Husky is installed with
+```bash
+npx husky-init && npm install
+```
+Don't forget to disable `husky` in CI. See [Disable husky in CI/Docker](https://typicode.github.io/husky/#/?id=with-is-ci).
+
+#### Commitizen
+
+Commitizen is installed with
+```bash
+npm install --save-dev commitizen
+```
+Then we set up `conventional-changelog` with
+```bash
+npx commitizen init cz-conventional-changelog --save-dev --save-exact
+```
+Then we add the following entry in `package.json`
+```json
+{
+    "husky": {
+        "hooks": {
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+        }
+    }
+}
+```
