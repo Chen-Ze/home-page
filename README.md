@@ -1,5 +1,3 @@
-
-
 # HomePage
 
 This project was generated using [Nx](https://nx.dev).
@@ -79,8 +77,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
@@ -102,9 +98,11 @@ The following are a brief reminder of the process of creating a project.
 #### Creation
 
 This workspace was created by
+
 ```shell
 npx create-nx-workspace
 ```
+
 With template `apps`.
 
 #### LICENSE
@@ -114,6 +112,7 @@ The License file is a template of the MIT license.
 #### Git
 
 There is a `.gitignore` provided by default. However, the following entries were added manually
+
 ```gitignore
 .eslintcache
 ```
@@ -129,28 +128,48 @@ The file `.circleci/config.yml` is copied from [Configuring CI Using CircleCI an
 #### Husky
 
 Husky is installed with
+
 ```bash
 npx husky-init && npm install
 ```
+
 Don't forget to disable `husky` in CI. See [Disable husky in CI/Docker](https://typicode.github.io/husky/#/?id=with-is-ci).
 
 #### Commitizen
 
 Commitizen is installed with
+
 ```bash
 npm install --save-dev commitizen
 ```
+
 Then we set up `conventional-changelog` with
+
 ```bash
 npx commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
+
 Then we add the following entry in `package.json`
+
 ```json
 {
-    "husky": {
-        "hooks": {
-            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-        }
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
+  }
 }
 ```
+
+### Code Style
+
+#### Lint-Staged
+
+Install with
+
+```bash
+npx mrm@2 lint-staged
+```
+
+By default, it may match only `*.js` files.
+Edit the `lint-staged` entry in `package.json` so that it covers `*.ts` as well.
