@@ -10,7 +10,11 @@ export default {
 } as Meta;
 
 const Template: Story<FrontUiChessGameChessboardProps> = (args) => (
-  <FrontUiChessGameChessboard {...args} />
+  <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <div style={{ position: 'relative', width: '100%', height: 480 }}>
+      <FrontUiChessGameChessboard {...args} />
+    </div>
+  </div>
 );
 
 export const Primary = Template.bind({});

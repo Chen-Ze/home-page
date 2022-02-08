@@ -165,6 +165,15 @@ Then we add the following entry in `package.json`
 
 #### Lint-Staged
 
+```json
+{
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{css,md}": "prettier --write"
+  }
+}
+```
+
 Install with
 
 ```bash
@@ -173,3 +182,38 @@ npx mrm@2 lint-staged
 
 By default, it may match only `*.js` files.
 Edit the `lint-staged` entry in `package.json` so that it covers `*.ts` as well.
+
+### Front-End
+
+#### Next.js
+
+Setup with
+
+```bash
+npm install --save-dev @nrwl/next
+nx g @nrwl/next:app front
+```
+
+#### React
+
+We add a UI lib using
+
+```bash
+nx g @nrwl/react:lib song-player --directory=front/ui-song-game
+```
+
+#### Storybook
+
+We set up `storybook` in our UI lib with
+
+```bash
+nx g @nrwl/react:storybook-configuration front-ui-song-game-song-player
+```
+
+The stories are grouped using the method in [Nx Tutorial: Group all your stories into a single viewable Storybook with Nx](https://www.youtube.com/watch?v=c323HOuFKkA).
+
+### Release
+
+#### Semantic-Release
+
+We are not ready for release yet. We will get back here once we are ready.

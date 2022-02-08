@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface FrontUiSongGameSongQuizProps {}

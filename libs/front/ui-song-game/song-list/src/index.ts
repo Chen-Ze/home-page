@@ -1,1 +1,1 @@
-export * from './lib/front-song-game-song-list';
+export * from './lib/front-ui-song-game-song-list';

@@ -17,6 +17,37 @@
         "jestConfig": "libs/front/ui-song-game/storybook/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/front/ui-song-game/storybook/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "outputPath": "dist/storybook/front-ui-song-game-storybook",
+        "config": {
+          "configFolder": "libs/front/ui-song-game/storybook/.storybook"
+        }
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   },
   "tags": []

@@ -14,7 +14,29 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@home-page/front-ui-song-game-song-list": [
+        "libs/front/ui-song-game/song-list/src/index.ts"
+      ],
+      "@home-page/front/ui-chess-game/chessboard": [
+        "libs/front/ui-chess-game/chessboard/src/index.ts"
+      ],
+      "@home-page/front/ui-song-game/song-list": [
+        "libs/front/ui-song-game/song-list/src/index.ts"
+      ],
+      "@home-page/front/ui-song-game/song-player": [
+        "libs/front/ui-song-game/song-player/src/index.ts"
+      ],
+      "@home-page/front/ui-song-game/song-quiz": [
+        "libs/front/ui-song-game/song-quiz/src/index.ts"
+      ],
+      "@home-page/front/ui-song-game/storybook": [
+        "libs/front/ui-song-game/storybook/src/index.ts"
+      ],
+      "@home-page/shared/data-access/data-access-song-game": [
+        "libs/shared/data-access/data-access-song-game/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

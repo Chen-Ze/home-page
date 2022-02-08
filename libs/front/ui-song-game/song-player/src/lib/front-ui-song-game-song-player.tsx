@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface FrontUiSongGameSongPlayerProps {}
@@ -12,7 +12,7 @@ export function FrontUiSongGameSongPlayer(
 ) {
   return (
     <StyledFrontUiSongGameSongPlayer>
-      <h1>Welcome to FrontUiSongGameSongPlayer!</h1>
+      <h1>Welcome to FrontUiSongGameSongQuiz!</h1>
     </StyledFrontUiSongGameSongPlayer>
   );
 }

@@ -41,7 +41,7 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/front-song-game-song-list",
+        "outputPath": "dist/storybook/front-ui-song-game-song-list",
         "config": {
           "configFolder": "libs/front/ui-song-game/song-list/.storybook"
         }
