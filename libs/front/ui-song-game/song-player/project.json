@@ -1,0 +1,25 @@
+{
+  "root": "libs/front/ui-song-game/song-player",
+  "sourceRoot": "libs/front/ui-song-game/song-player/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/front/ui-song-game/song-player/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/front/ui-song-game/song-player"],
+      "options": {
+        "jestConfig": "libs/front/ui-song-game/song-player/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

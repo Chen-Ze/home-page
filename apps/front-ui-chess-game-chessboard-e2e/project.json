@@ -1,0 +1,30 @@
+{
+  "root": "apps/front-ui-chess-game-chessboard-e2e",
+  "sourceRoot": "apps/front-ui-chess-game-chessboard-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/front-ui-chess-game-chessboard-e2e/cypress.json",
+        "devServerTarget": "front-ui-chess-game-chessboard:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "front-ui-chess-game-chessboard:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/front-ui-chess-game-chessboard-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["front-ui-chess-game-chessboard"]
+}

@@ -1,0 +1,25 @@
+{
+  "root": "libs/front/ui-chess-game/chessboard",
+  "sourceRoot": "libs/front/ui-chess-game/chessboard/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/front/ui-chess-game/chessboard/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/front/ui-chess-game/chessboard"],
+      "options": {
+        "jestConfig": "libs/front/ui-chess-game/chessboard/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

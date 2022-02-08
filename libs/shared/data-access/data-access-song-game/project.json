@@ -1,0 +1,25 @@
+{
+  "root": "libs/shared/data-access/data-access-song-game",
+  "sourceRoot": "libs/shared/data-access/data-access-song-game/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-access/data-access-song-game/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/data-access/data-access-song-game"],
+      "options": {
+        "jestConfig": "libs/shared/data-access/data-access-song-game/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,23 @@
+{
+  "root": "libs/front/ui-song-game/storybook",
+  "sourceRoot": "libs/front/ui-song-game/storybook/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/front/ui-song-game/storybook/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/front/ui-song-game/storybook"],
+      "options": {
+        "jestConfig": "libs/front/ui-song-game/storybook/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
