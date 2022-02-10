@@ -1,0 +1,23 @@
+{
+  "root": "libs/front/ui-song-game/fake-data",
+  "sourceRoot": "libs/front/ui-song-game/fake-data/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/front/ui-song-game/fake-data/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/front/ui-song-game/fake-data"],
+      "options": {
+        "jestConfig": "libs/front/ui-song-game/fake-data/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

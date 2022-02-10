@@ -1,15 +1,15 @@
 import {
   Box,
-  Drawer,
   List,
   ListItem,
+  ListItemButton,
   ListItemIcon,
   ListItemText,
   Typography,
-  useMediaQuery,
   useTheme,
 } from '@mui/material';
 import GraphicEqIcon from '@mui/icons-material/GraphicEq';
+import { useEffect, useRef } from 'react';
 
 interface Song {
   id: string;
@@ -19,8 +19,6 @@ interface Song {
 
 /* eslint-disable-next-line */
 export interface FrontUiSongGameSongListProps {
-  open: boolean;
-  onClose: () => void;
   songList: Song[];
   selectedId: string;
   onSelect: (id: string) => void;
@@ -28,42 +26,42 @@ export interface FrontUiSongGameSongListProps {
 
 export function FrontUiSongGameSongList(props: FrontUiSongGameSongListProps) {
   const theme = useTheme();
-  const wideScreen = useMediaQuery(theme.breakpoints.up('sm'));
+  const selectedSongItemRef = useRef<HTMLLIElement>(null);
+  useEffect(() => {
+    console.log(selectedSongItemRef.current);
+    selectedSongItemRef.current?.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    });
+  }, [selectedSongItemRef, props.selectedId, props.songList]);
 
   return (
-    <Drawer
-      anchor={wideScreen ? 'right' : 'bottom'}
-      open={props.open}
-      onClose={props.onClose}
-      ModalProps={{
-        keepMounted: true,
+    <List
+      sx={{
+        [theme.breakpoints.up('sm')]: {
+          width: '360px',
+          maxWidth: '100%',
+        },
+        [theme.breakpoints.down('sm')]: {
+          maxHeight: '60vh',
+        },
+        '& .MuiListItemIcon-root': {
+          minWidth: 0,
+          marginRight: theme.spacing(1),
+        },
       }}
     >
-      <List
-        sx={{
-          [theme.breakpoints.up('sm')]: {
-            width: '360px',
-            maxWidth: '100%',
-          },
-          [theme.breakpoints.down('sm')]: {
-            maxHeight: '60vh',
-          },
-          '& .MuiListItemIcon-root': {
-            minWidth: 0,
-            marginRight: theme.spacing(1),
-          },
-        }}
-      >
-        {props.songList.map((song) => (
-          <ListItem
-            button
-            selected={song.id === props.selectedId}
-            key={song.id}
-            onClick={() => {
-              props.onSelect(song.id);
-              props.onClose();
-            }}
-          >
+      {props.songList.map((song) => (
+        <ListItem
+          ref={song.id === props.selectedId ? selectedSongItemRef : null}
+          selected={song.id === props.selectedId}
+          key={song.id}
+          onClick={() => {
+            props.onSelect(song.id);
+          }}
+          disablePadding
+        >
+          <ListItemButton>
             {song.id === props.selectedId && (
               <ListItemIcon>
                 <GraphicEqIcon />
@@ -99,10 +97,10 @@ export function FrontUiSongGameSongList(props: FrontUiSongGameSongListProps) {
                 </Box>
               }
             />
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
   );
 }
 

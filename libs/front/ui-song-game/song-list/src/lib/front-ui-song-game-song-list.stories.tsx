@@ -3,28 +3,31 @@ import {
   FrontUiSongGameSongList,
   FrontUiSongGameSongListProps,
 } from './front-ui-song-game-song-list';
-import { songListProps } from './song-list-mock';
+import { generateSongList } from '@home-page/front/ui-song-game/fake-data';
 
 export default {
   component: FrontUiSongGameSongList,
   title: 'FrontUiSongGameSongList',
   argTypes: {
     onSelect: { action: 'selected' },
-    onClose: { action: 'closed' },
   },
 } as Meta;
 
-const Template: Story<FrontUiSongGameSongListProps> = (args) => (
-  <FrontUiSongGameSongList {...args} />
-);
+const Template: Story<FrontUiSongGameSongListProps> = (args) => {
+  return <FrontUiSongGameSongList {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
-  ...songListProps,
+  ...generateSongList(200),
 };
 
 export const Less = Template.bind({});
 Less.args = {
-  ...Default.args,
-  songList: Default.args.songList?.slice(0, 1),
+  ...generateSongList(5),
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  ...generateSongList(0),
 };
