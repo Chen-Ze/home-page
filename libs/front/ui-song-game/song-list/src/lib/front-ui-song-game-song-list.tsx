@@ -54,17 +54,17 @@ export function FrontUiSongGameSongList(props: FrontUiSongGameSongListProps) {
           },
         }}
       >
-        {props.songList.map((songEntry) => (
+        {props.songList.map((song) => (
           <ListItem
             button
-            selected={songEntry.id === props.selectedId}
-            key={songEntry.id}
+            selected={song.id === props.selectedId}
+            key={song.id}
             onClick={() => {
-              props.onSelect(songEntry.id);
+              props.onSelect(song.id);
               props.onClose();
             }}
           >
-            {songEntry.id === props.selectedId && (
+            {song.id === props.selectedId && (
               <ListItemIcon>
                 <GraphicEqIcon />
               </ListItemIcon>
@@ -77,7 +77,7 @@ export function FrontUiSongGameSongList(props: FrontUiSongGameSongListProps) {
                     alignItems: 'center',
                   }}
                 >
-                  {songEntry.title}
+                  {song.title}
                   <Typography
                     sx={{ display: 'inline', paddingX: theme.spacing(1) }}
                     component="span"
@@ -94,7 +94,7 @@ export function FrontUiSongGameSongList(props: FrontUiSongGameSongListProps) {
                     variant="body2"
                     color="text.secondary"
                   >
-                    {songEntry.artists.join(' / ')}
+                    {song.artists.join(' / ')}
                   </Typography>
                 </Box>
               }
